@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example: Simple</title>
+    <style>
+      body {
+        text-align: center;
+        background: #333;
+
+        position: absolute;
+        top: 0; bottom: 0; left: 0; right: 0;
+        display: flex;
+        flex-direction: column;
+
+        /*user-select: none;
+        cursor: default;*/
+      }
+
+      h2 {
+        color: #f90;
+      }
+    </style>
+    <script src="../dist/lstats.dev.js"></script>
+  </head>
+
+  <body>
+    <h2>lstats</h2>
+    <script>
+      'use strict';
+
+      let stats = new window.LStats(document.body);
+
+      function delay() {
+        let d = Math.random() * 10;
+        let now = Date.now();
+        let s = now + d;
+        while (now < s) {
+          now = Date.now();
+        }
+      }
+
+      function render() {
+        delay();
+        stats.tick();
+        requestAnimationFrame(render);
+      }
+
+      render();
+    </script>
+  </body>
+</html>
