@@ -4,6 +4,12 @@ Visualizing and monitor your performance.
 
 Inspired by [stats.js](https://github.com/mrdoob/stats.js/) and [memory-stats.js](https://github.com/paulirish/memory-stats.js).
 
+## Why
+
+  - Lite (vs pstats.js)
+  - Support GC detection when monitor memory (vs stats.js)
+  - Drawing fast (vs memory-stats.js)
+
 ## Install
 
 ```bash
