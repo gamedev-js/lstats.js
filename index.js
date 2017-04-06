@@ -1,12 +1,12 @@
 // polyfill
-(function () {
+function polyfill () {
   if (typeof window.performance === 'undefined') {
     window.performance = {};
   }
 
   if (!window.performance.now) {
 
-    var nowOffset = Date.now();
+    let nowOffset = Date.now();
 
     if (performance.timing && performance.timing.navigationStart) {
       nowOffset = performance.timing.navigationStart;
@@ -28,7 +28,9 @@
   if (!window.performance.memory) {
     window.performance.memory = { usedJSHeapSize: 0, totalJSHeapSize: 0 };
   }
-})();
+}
+
+polyfill();
 
 const _width = 80;
 const _height = 38;
@@ -186,7 +188,9 @@ export default class LStats {
     this._mode = 0;
     this._enableFPS = installs.indexOf('fps') !== -1;
     this._enableMS = installs.indexOf('ms') !== -1;
-    this._enableMB = installs.indexOf('mb') !== -1;
+    if (window.performance.memory.totalJSHeapSize) {
+      this._enableMB = installs.indexOf('mb') !== -1;
+    }
 
     // ms
     // this._lastTick = 0;
