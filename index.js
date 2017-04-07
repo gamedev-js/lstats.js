@@ -188,7 +188,7 @@ export default class LStats {
     this._mode = 0;
     this._enableFPS = installs.indexOf('fps') !== -1;
     this._enableMS = installs.indexOf('ms') !== -1;
-    if (window.performance.memory.totalJSHeapSize) {
+    if (window.performance.memory && window.performance.memory.totalJSHeapSize) {
       this._enableMB = installs.indexOf('mb') !== -1;
     }
 
