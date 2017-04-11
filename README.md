@@ -35,7 +35,7 @@ function render() {
 render();
 ```
 
-NOTE: if you want to monitor memory, Start Chrome with `--enable-precise-memory-info`. Otherwise the results from performance.memory are bucketed and less useful. if you are using `Electron`, start the BrowserWindow with the following code:
+**NOTE:** if you want to monitor memory, start Chrome with `--enable-precise-memory-info`. Otherwise the results from performance.memory are bucketed and less useful. if you are using `Electron`, start the BrowserWindow with the following code:
 
 ```javascript
 let win = new BrowserWindow({
