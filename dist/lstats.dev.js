@@ -1,6 +1,6 @@
 
 /*
- * lstats.js v1.2.3
+ * lstats.js v1.2.4
  * (c) 2017 @Johnny Wu
  * Released under the MIT License.
  */
@@ -197,9 +197,10 @@ var _ThresholdGraph = (function (_Graph) {
 /**
  * @class LStats
  */
-var LStats = function LStats (dom, installs) {
+var LStats = function LStats (dom, installs, css) {
   var this$1 = this;
   if ( installs === void 0 ) installs = ['fps', 'ms', 'mb'];
+  if ( css === void 0 ) css = '';
 
   this._mode = 0;
   this._enableFPS = installs.indexOf('fps') !== -1;
@@ -224,7 +225,7 @@ var LStats = function LStats (dom, installs) {
 
   // dom
   var container = document.createElement('div');
-  container.style.cssText = 'position:fixed;top:5px;right:5px;cursor:pointer;opacity:0.9;z-index:9999';
+  container.style.cssText = "position:fixed;top:5px;right:5px;cursor:pointer;opacity:0.9;z-index:9999;" + css;
   container.addEventListener('mousedown', function (event) {
     event.preventDefault();
     event.stopPropagation();
