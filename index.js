@@ -184,7 +184,13 @@ class _ThresholdGraph extends _Graph {
  * @class LStats
  */
 export default class LStats {
-  constructor (dom, installs = ['fps', 'ms', 'mb']) {
+  /**
+   * @constructor
+   * @param {HTMLElement} dom
+   * @param {array} installs - default is ['fps', 'ms', 'mb']
+   * @param {string} css
+   */
+  constructor (dom, installs = ['fps', 'ms', 'mb'], css = '') {
     this._mode = 0;
     this._enableFPS = installs.indexOf('fps') !== -1;
     this._enableMS = installs.indexOf('ms') !== -1;
@@ -208,7 +214,7 @@ export default class LStats {
 
     // dom
     let container = document.createElement('div');
-    container.style.cssText = 'position:fixed;top:5px;right:5px;cursor:pointer;opacity:0.9;z-index:9999';
+    container.style.cssText = `position:fixed;top:5px;right:5px;cursor:pointer;opacity:0.9;z-index:9999;${css}`;
     container.addEventListener('mousedown', event => {
       event.preventDefault();
       event.stopPropagation();
