@@ -242,8 +242,13 @@ export default class LStats {
     }
 
     dom.appendChild(container);
+
+    this._container = container;
   }
 
+  /**
+   * @method tick
+   */
   tick () {
     let time = window.performance.now();
 
@@ -280,5 +285,19 @@ export default class LStats {
         this._graphMB.draw(this._used / 1048576, delta < 0);
       }
     }
+  }
+
+  /**
+   * @method show
+   */
+  show() {
+    this._container.style.display = 'block';
+  }
+
+  /**
+   * @method hide
+   */
+  hide() {
+    this._container.style.display = 'none';
   }
 }
