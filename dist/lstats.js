@@ -1,6 +1,6 @@
 
 /*
- * lstats.js v1.2.4
+ * lstats.js v1.2.5
  * (c) 2017 @Johnny Wu
  * Released under the MIT License.
  */
@@ -252,8 +252,13 @@ var LStats = function LStats (dom, installs, css) {
   }
 
   dom.appendChild(container);
+
+  this._container = container;
 };
 
+/**
+ * @method tick
+ */
 LStats.prototype.tick = function tick () {
   var time = window.performance.now();
 
@@ -290,6 +295,20 @@ LStats.prototype.tick = function tick () {
       this._graphMB.draw(this._used / 1048576, delta < 0);
     }
   }
+};
+
+/**
+ * @method show
+ */
+LStats.prototype.show = function show () {
+  this._container.style.display = 'block';
+};
+
+/**
+ * @method hide
+ */
+LStats.prototype.hide = function hide () {
+  this._container.style.display = 'none';
 };
 
 module.exports = LStats;
