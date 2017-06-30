@@ -1,6 +1,6 @@
 
 /*
- * lstats.js v1.2.5
+ * lstats.js v1.2.6
  * (c) 2017 @Johnny Wu
  * Released under the MIT License.
  */
@@ -68,7 +68,7 @@ var _Graph = function _Graph(dom, name, fg, bg) {
   this._canvas.height = HEIGHT;
   this._canvas.style.cssText = "width:" + _width + "px;height:" + _height + "px";
 
-  this._ctx = this._canvas.getContext('2d');
+  this._ctx = this._canvas.getContext('2d', { alpha: false });
   this._ctx.font = "bold " + (9 * PR) + "px Helvetica,Arial,sans-serif";
   this._ctx.textBaseline = 'top';
 
@@ -121,7 +121,7 @@ var _ThresholdGraph = (function (_Graph) {
     this._canvas2.height = GRAPH_HEIGHT;
     this._canvas2.style.cssText = "width:" + (GRAPH_WIDTH/PR) + "px;height:" + (GRAPH_HEIGHT/PR) + "px";
 
-    this._ctx2 = this._canvas2.getContext('2d');
+    this._ctx2 = this._canvas2.getContext('2d', { alpha: false });
     this._ctx2.fillStyle = bg;
     this._ctx.globalAlpha = 0.9;
     this._ctx2.fillRect(0, 0, GRAPH_WIDTH, GRAPH_HEIGHT);

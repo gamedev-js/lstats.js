@@ -1,6 +1,6 @@
 {
   "name": "lstats.js",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "Visualizing and monitor your performance.",
   "main": "dist/lstats.js",
   "scripts": {
