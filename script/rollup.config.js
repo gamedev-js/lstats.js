@@ -14,23 +14,33 @@ let banner = `
 
 let dest = './dist';
 let file = 'lstats';
-let moduleName = 'LStats';
+let name = 'LStats';
+let sourcemap = true;
+let globals = {};
 
 // clear directory
 fsJetpack.dir(dest, { empty: true });
 
 module.exports = {
-  entry: './index.js',
-  targets: [
-    { dest: `${dest}/${file}.dev.js`, format: 'iife' },
-    { dest: `${dest}/${file}.js`, format: 'cjs' },
-  ],
-  moduleName,
-  banner,
+  input: './index.js',
   external: [],
-  globals: {},
-  sourceMap: true,
   plugins: [
     buble(),
-  ]
+  ],
+  output: [
+    {
+      file: `${dest}/${file}.dev.js`,
+      format: 'iife',
+      name,
+      globals,
+      sourcemap
+    },
+    {
+      file: `${dest}/${file}.js`,
+      format: 'cjs',
+      name,
+      globals,
+      sourcemap
+    },
+  ],
 };
